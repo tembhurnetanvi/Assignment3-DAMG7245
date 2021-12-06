@@ -1,0 +1,16 @@
+global:
+    smtp_smarthost: '$SMARTHOST'
+    smtp_from: '$FROM'
+    smtp_auth_username: '$SMTPAUTHUSERNAME'
+    smtp_auth_password: '$SMTPAUTHPASSWORD'
+
+templates:
+    - '/etc/alertmanager/template/*.tmpl'
+
+route:
+    receiver: 'team-X-mails'
+
+receivers:
+    - name: 'team-X-mails'
+      email_configs:
+          - to: '$TO'
